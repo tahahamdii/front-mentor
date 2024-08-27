@@ -120,17 +120,17 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Voir les Réservations',
-    iconName: 'solar:calendar-line-duotone',
+    iconName: 'solar:calendar-date-bold',
     route: '/reservations/view',
   },
   {
     displayName: 'Ajouter une Réservation',
-    iconName: 'solar:plus-circle-line-duotone',
+    iconName: 'solar:add-circle-bold',
     route: '/reservations/add',
   },
   {
     displayName: 'Annuler une Réservation',
-    iconName: 'solar:cancel-line-duotone',
+    iconName: 'solar:call-cancel-bold',
     route: '/reservations/cancel',
   },
   {
@@ -149,12 +149,12 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Mettre à Jour un Utilisateur',
-    iconName: 'solar:user-edit-line-duotone',
+    iconName: 'solar:smartphone-update-bold',
     route: '/users/update',
   },
   {
     displayName: 'Supprimer un Utilisateur',
-    iconName: 'solar:user-delete-line-duotone',
+    iconName: 'solar:user-cross-bold',
     route: '/users/delete',
   },
   {
