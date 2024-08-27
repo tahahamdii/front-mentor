@@ -1,0 +1,174 @@
+// import { NavItem } from './nav-item/nav-item';
+
+// export const navItems: NavItem[] = [
+//   {
+//     navCap: 'Home',
+//   },
+//   {
+//     displayName: 'Dashboard',
+//     iconName: 'solar:widget-add-line-duotone',
+//     route: '/dashboard',
+//   },
+//   {
+//     navCap: 'Menu',
+//     divider: true
+//   },
+//   {
+//     displayName: 'View Reservations',
+//     iconName: 'solar:calendar-line-duotone',
+//     route: '/ui-components/badge',
+//   },
+//   {
+//     displayName: 'Chips',
+//     iconName: 'solar:danger-circle-line-duotone',
+//     route: '/ui-components/chips',
+//   },
+//   {
+//     displayName: 'Lists',
+//     iconName: 'solar:bookmark-square-minimalistic-line-duotone',
+//     route: '/ui-components/lists',
+//   },
+//   {
+//     displayName: 'Menu',
+//     iconName: 'solar:file-text-line-duotone',
+//     route: '/ui-components/menu',
+//   },
+//   {
+//     displayName: 'Tooltips',
+//     iconName: 'solar:text-field-focus-line-duotone',
+//     route: '/ui-components/tooltips',
+//   },
+//   {
+//     displayName: 'Forms',
+//     iconName: 'solar:file-text-line-duotone',
+//     route: '/ui-components/forms',
+//   },
+//   {
+//     displayName: 'Tables',
+//     iconName: 'solar:tablet-line-duotone',
+//     route: '/ui-components/tables',
+//   },
+//   {
+//     navCap: 'Reservation',
+//     divider: true
+//   },
+//   {
+//     displayName: 'Login',
+//     iconName: 'solar:login-3-line-duotone',
+//     route: '/authentication/login',
+//   },
+//   {
+//     displayName: 'Register',
+//     iconName: 'solar:user-plus-rounded-line-duotone',
+//     route: '/authentication/register',
+//   },
+//   {
+//     navCap: 'Extra',
+//     divider: true
+//   },
+//   {
+//     displayName: 'Icons',
+//     iconName: 'solar:sticker-smile-circle-2-line-duotone',
+//     route: '/extra/icons',
+//   },
+//   {
+//     displayName: 'Sample Page',
+//     iconName: 'solar:planet-3-line-duotone',
+//     route: '/extra/sample-page',
+//   },
+// ];
+import { NavItem } from './nav-item/nav-item';
+
+export const navItems: NavItem[] = [
+  {
+    navCap: 'Tableau de Bord',
+    iconName: 'solar:dashboard-line-duotone',
+    route: '/dashboard',
+  },
+  {
+        displayName: 'Dashboard',
+        iconName: 'solar:widget-add-line-duotone',
+        route: '/dashboard',
+      },
+  {
+    navCap: 'Gestion des Menus',
+    divider: true
+  },
+  {
+    displayName: 'Voir les Menus',
+    iconName: 'solar:tablet-line-duotone',
+    route: '/menus/view',
+  },
+  {
+    displayName: 'Ajouter un Menu',
+    iconName: 'solar:add-circle-broken',
+    route: '/menus/add',
+  },
+  {
+    displayName: 'Mettre à Jour un Menu',
+    iconName: 'solar:server-square-update-outline',
+    route: '/menus/update',
+  },
+  {
+    displayName: 'Supprimer un Menu',
+    iconName: 'solar:trash-bin-trash-bold',
+    route: '/menus/delete',
+  },
+  {
+    navCap: 'Gestion des Réservations',
+    divider: true
+  },
+  {
+    displayName: 'Voir les Réservations',
+    iconName: 'solar:calendar-line-duotone',
+    route: '/reservations/view',
+  },
+  {
+    displayName: 'Ajouter une Réservation',
+    iconName: 'solar:plus-circle-line-duotone',
+    route: '/reservations/add',
+  },
+  {
+    displayName: 'Annuler une Réservation',
+    iconName: 'solar:cancel-line-duotone',
+    route: '/reservations/cancel',
+  },
+  {
+    navCap: 'Gestion des Utilisateurs',
+    divider: true
+  },
+  {
+    displayName: 'Voir les Utilisateurs',
+    iconName: 'solar:user-line-duotone',
+    route: '/users/view',
+  },
+  {
+    displayName: 'Ajouter un Utilisateur',
+    iconName: 'solar:user-plus-line-duotone',
+    route: '/users/add',
+  },
+  {
+    displayName: 'Mettre à Jour un Utilisateur',
+    iconName: 'solar:user-edit-line-duotone',
+    route: '/users/update',
+  },
+  {
+    displayName: 'Supprimer un Utilisateur',
+    iconName: 'solar:user-delete-line-duotone',
+    route: '/users/delete',
+  },
+  {
+    navCap: 'Paramètres',
+    divider: true
+  },
+  {
+    displayName: 'Paramètres du Profil',
+    iconName: 'solar:settings-line-duotone',
+    route: '/settings/profile',
+  },
+  {
+    displayName: 'Paramètres du Système',
+    iconName: 'solar:system-line-duotone',
+    route: '/settings/system',
+  },
+];
