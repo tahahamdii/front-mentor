@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { ReactiveFormsModule } from '@angular/forms'; // import the ReactiveFormsModule
 import { Menu } from '../../../components/menu-table/menu-table.component';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { provideNativeDateAdapter } from '@angular/material/core';
 @Component({
@@ -21,7 +22,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     ReactiveFormsModule,
     MatFormFieldModule,
     
-    MatDatepickerModule
+    MatDatepickerModule,
+    
+    MatMomentDateModule,
 
   ]
 })
