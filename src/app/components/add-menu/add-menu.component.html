@@ -1,0 +1,43 @@
+<mat-card class="cardWithShadow">
+    <mat-card-title>Add New Menu</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="w-100">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="menuDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100">
+          <mat-label>Entrée</mat-label>
+          <input matInput formControlName="entree" required>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100">
+          <mat-label>Main Course</mat-label>
+          <input matInput formControlName="mainCourse" required>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100">
+          <mat-label>Garnish</mat-label>
+          <input matInput formControlName="garnish" required>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100">
+          <mat-label>Dessert</mat-label>
+          <input matInput formControlName="dessert" required>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100">
+          <mat-label>Sandwiches (comma-separated)</mat-label>
+          <input matInput formControlName="sandwiches" required>
+        </mat-form-field>
+  
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Add Menu</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

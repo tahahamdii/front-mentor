@@ -15,8 +15,8 @@ export interface Menu {
   id: number;
   date: string;
   entree: string;
-  platPrincipal: string;
-  garniture: string;
+  main_course: string;
+  garnish: string;
   dessert: string;
   sandwiches: string[];
 }
@@ -85,7 +85,7 @@ export class MenuTableComponent implements OnInit {
   }
 
   updateMenu(menu: Menu): void {
-    this.http.put<Menu>(`your-api-url-here/update/${menu.id}`, menu).subscribe(updatedMenu => {
+    this.http.put<Menu>(`http://localhost:8080/api/menus/update/${menu.id}`, menu).subscribe(updatedMenu => {
       const index = this.dataSource.findIndex(m => m.id === updatedMenu.id);
       this.dataSource[index] = updatedMenu;
     });

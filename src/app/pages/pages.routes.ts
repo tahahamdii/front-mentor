@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { StarterComponent } from './starter/starter.component';
+import { AddMenuComponent } from '../components/add-menu/add-menu.component';
 
 export const PagesRoutes: Routes = [
   {
@@ -13,4 +14,6 @@ export const PagesRoutes: Routes = [
       ],
     },
   },
+  { path: '/menus/add', component: AddMenuComponent },
+
 ];
