@@ -6,6 +6,8 @@ import { AppDailyActivitiesComponent } from 'src/app/components/daily-activities
 import { AppBlogCardsComponent } from 'src/app/components/blog-card/blog-card.component';
 import { AppRevenueProductComponent } from 'src/app/components/revenue-product/revenue-product.component';
 import { AppRevenueForecastComponent } from 'src/app/components/revenue-forecast/revenue-forecast.component';
+import { AppTablesComponent } from "../ui-components/tables/tables.component";
+import { MenuTableComponent } from "../../components/menu-table/menu-table.component";
 
 @Component({
   selector: 'app-starter',
@@ -18,7 +20,9 @@ import { AppRevenueForecastComponent } from 'src/app/components/revenue-forecast
     AppBlogCardsComponent,
     AppRevenueProductComponent,
     AppRevenueForecastComponent,
-  ],
+    AppTablesComponent,
+    MenuTableComponent
+],
   templateUrl: './starter.component.html',
   styleUrls: ['./starter.component.scss'],
   encapsulation: ViewEncapsulation.None,
