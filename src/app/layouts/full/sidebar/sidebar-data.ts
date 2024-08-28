@@ -86,6 +86,11 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
+        displayName: 'Lists',
+        iconName: 'solar:bookmark-square-minimalistic-line-duotone',
+        route: '/ui-components/lists',
+      },
+  {
         displayName: 'Dashboard',
         iconName: 'solar:widget-add-line-duotone',
         route: '/dashboard',
@@ -102,7 +107,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Ajouter un Menu',
     iconName: 'solar:add-circle-broken',
-    route: '/menus/add',
+    route: '/ui-components/add-menu',
   },
   {
     displayName: 'Mettre à Jour un Menu',

@@ -14,6 +14,15 @@ export const PagesRoutes: Routes = [
       ],
     },
   },
-  { path: '/menus/add', component: AddMenuComponent },
-
-];
+  {
+    path: 'add-menu',
+    component: AddMenuComponent, // Add the route for the AddMenuComponent
+    data: {
+      title: 'Add Menu',
+      urls: [
+        { title: 'Dashboard', url: '/dashboard' },
+        { title: 'Add Menu' },
+      ],
+    },
+  }
+]
