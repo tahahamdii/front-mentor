@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatTableModule } from '@angular/material/table';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 @Component({
@@ -25,7 +25,8 @@ import { DatePipe } from '@angular/common';
     MatMomentDateModule,
     ReactiveFormsModule,
     MatTableModule,
-    DatePipe
+    DatePipe,
+    CommonModule
   ],
   providers: [DatePipe]
 
