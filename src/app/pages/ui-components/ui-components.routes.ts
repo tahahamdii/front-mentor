@@ -9,6 +9,7 @@ import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import { AppFormsComponent } from './forms/forms.component';
 import { AppTablesComponent } from './tables/tables.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -45,6 +46,10 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'add-menu',
         component: AddMenuComponent,
+      },
+      {
+        path: 'reservations',
+        component: ReservationComponent,
       }
     ],
   },

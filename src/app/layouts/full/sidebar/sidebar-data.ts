@@ -126,7 +126,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Voir les Réservations',
     iconName: 'solar:calendar-date-bold',
-    route: '/reservations/view',
+    route: '/ui-components/reservations',
   },
   {
     displayName: 'Ajouter une Réservation',
