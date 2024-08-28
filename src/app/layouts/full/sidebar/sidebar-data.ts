@@ -109,16 +109,16 @@ export const navItems: NavItem[] = [
     iconName: 'solar:add-circle-broken',
     route: '/ui-components/add-menu',
   },
-  {
-    displayName: 'Mettre à Jour un Menu',
-    iconName: 'solar:server-square-update-outline',
-    route: '/menus/update',
-  },
-  {
-    displayName: 'Supprimer un Menu',
-    iconName: 'solar:trash-bin-trash-bold',
-    route: '/menus/delete',
-  },
+  // {
+  //   displayName: 'Mettre à Jour un Menu',
+  //   iconName: 'solar:server-square-update-outline',
+  //   route: '/menus/update',
+  // },
+  // {
+  //   displayName: 'Supprimer un Menu',
+  //   iconName: 'solar:trash-bin-trash-bold',
+  //   route: '/menus/delete',
+  // },
   {
     navCap: 'Gestion des Réservations',
     divider: true
