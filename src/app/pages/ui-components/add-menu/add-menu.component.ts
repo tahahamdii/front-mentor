@@ -5,27 +5,25 @@ import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-import { ReactiveFormsModule } from '@angular/forms'; // import the ReactiveFormsModule
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { Menu } from '../../../components/menu-table/menu-table.component';
-import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
-import { provideNativeDateAdapter } from '@angular/material/core';
 @Component({
   selector: 'app-add-menu',
   templateUrl: './add-menu.component.html',
   styleUrls: ['./add-menu.component.css'],
-  standalone: true, 
+  standalone: true,
   imports: [
     MatCardModule,
-    ReactiveFormsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
-    
+    MatInputModule,
+    MatButtonModule,
     MatDatepickerModule,
-    
     MatMomentDateModule,
-
+    ReactiveFormsModule,
   ]
 })
 export class AddMenuComponent implements OnInit {
@@ -53,7 +51,7 @@ export class AddMenuComponent implements OnInit {
 
       this.http.post<Menu>('http://localhost:8080/api/menus/add', menuData).subscribe({
         next: (response) => {
-          this.router.navigate(['/menu-list']);  // Navigate back to menu list or another appropriate route
+          this.router.navigate(['/dashboard']);  // Navigate back to menu list or another appropriate route
         },
         error: (error) => {
           console.error('There was an error adding the menu!', error);
