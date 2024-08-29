@@ -63,7 +63,7 @@ export const routes: Routes = [
     component: BlankComponent,
     children:[
       {
-        path: 'employee',
+        path: 'v1',
         loadChildren: () =>
           import('../app/pages/employee/employee.routes').then(
             (m) => m.EmployeeRoutes
