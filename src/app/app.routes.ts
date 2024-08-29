@@ -60,7 +60,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: BlankComponent,
+    
     children:[
       {
         path: 'v1',

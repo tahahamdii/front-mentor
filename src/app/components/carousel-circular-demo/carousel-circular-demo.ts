@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from '../../services/productservice';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 @Component({
     selector: 'carousel-circular-demo',
     templateUrl: './carousel-circular-demo.html',
-    styles: '',
+    styleUrl: 'style.css',
     standalone: true,
-    imports: [CarouselModule, ButtonModule, TagModule],
-    providers: [ProductService]
+    imports: [CarouselModule, ButtonModule, TagModule,MdbCarouselModule],
+    providers: [ProductService],
+    encapsulation: ViewEncapsulation.Emulated,
+
+
 })
 export class CarouselCircularDemo implements OnInit{
     products: Product[] ;
