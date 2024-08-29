@@ -131,7 +131,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Ajouter une Réservation',
     iconName: 'solar:add-circle-bold',
-    route: '/reservations/add',
+    route: '/ui-components/make-reservation',
   },
   {
     displayName: 'Annuler une Réservation',

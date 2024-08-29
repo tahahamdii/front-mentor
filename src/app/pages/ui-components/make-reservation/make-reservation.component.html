@@ -1,0 +1,34 @@
+<mat-card class="cardWithShadow">
+    <mat-card-title>Make a Reservation</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        
+        <!-- User ID Input -->
+        <mat-form-field class="w-100">
+          <mat-label>User ID</mat-label>
+          <input matInput formControlName="userId" required>
+        </mat-form-field>
+  
+        <!-- Menu ID Input -->
+        <mat-form-field class="w-100">
+          <mat-label>Menu ID</mat-label>
+          <input matInput formControlName="menuId" required>
+        </mat-form-field>
+  
+        <!-- Reservation Date Input -->
+        <mat-form-field class="w-100">
+          <mat-label>Reservation Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="reservationDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- Submit Button -->
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Make Reservation</button>
+        </div>
+        
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

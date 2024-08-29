@@ -13,43 +13,65 @@
             </a>
           </div>
 
-         
-
-
-          <form class="m-t-30">
+          <form [formGroup]="form" (ngSubmit)="submit()" class="m-t-30">
+            
+            <!-- First Name -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Name</mat-label
+              >First Name</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput formControlName="firstName" />
             </mat-form-field>
+
+            <!-- Last Name -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Email Adddress</mat-label
+              >Last Name</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="email" />
+              <input matInput formControlName="lastName" />
             </mat-form-field>
-            <!-- password -->
+
+            <!-- Email Address -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+              >Email Address</mat-label
+            >
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput type="email" formControlName="email" />
+            </mat-form-field>
+
+            <!-- Password -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Password</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="password" formControlName="password" />
             </mat-form-field>
 
-            <a
-              [routerLink]="['/']"
+            <!-- Role -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+              >Role</mat-label
+            >
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <mat-select formControlName="role">
+                <mat-option value="employee">Employee</mat-option>
+                <mat-option value="admin">Admin</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Submit Button -->
+            <button
               mat-flat-button
               color="primary"
               class="w-100"
+              type="submit"
+              [disabled]="form.invalid"
             >
               Sign Up
-            </a>
-            <!-- input -->
+            </button>
+
           </form>
           <span class="d-block f-w-500 text-center m-t-24"
             >Already have an Account?
-
             <a
               [routerLink]="['/authentication/login']"
               class="text-decoration-none text-primary f-w-500 f-s-14"

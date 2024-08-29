@@ -10,6 +10,7 @@ import { AppFormsComponent } from './forms/forms.component';
 import { AppTablesComponent } from './tables/tables.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { MakeReservationComponent } from './make-reservation/make-reservation.component';
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -50,6 +51,10 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'reservations',
         component: ReservationComponent,
+      },
+      {
+        path: 'make-reservation',
+        component: MakeReservationComponent,
       }
     ],
   },
