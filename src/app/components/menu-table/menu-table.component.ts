@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateMenuFormComponent } from '../update-menu-form/update-menu-form.component';
+import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
 
 // Define the Menu interface
 export interface Menu {
@@ -31,6 +32,7 @@ export interface Menu {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    HeaderComponent
   ],
   templateUrl: './menu-table.component.html',
 })

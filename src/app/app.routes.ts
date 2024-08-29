@@ -59,6 +59,19 @@ export const routes: Routes = [
     ]
   },
   {
+    path: '',
+    component: BlankComponent,
+    children:[
+      {
+        path: 'employee',
+        loadChildren: () =>
+          import('../app/pages/employee/employee.routes').then(
+            (m) => m.EmployeeRoutes
+          ),
+      }
+    ]
+  },
+  {
     path: '**',
     redirectTo: 'authentication/error',
   },
