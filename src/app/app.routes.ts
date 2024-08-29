@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
+import { MenuTableComponent } from './components/menu-table/menu-table.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,19 @@ export const routes: Routes = [
           ),
       },
     ],
+  },
+  {
+    path: '',
+    component: BlankComponent,
+    children:[
+      {
+        path: 'menu-table',
+        loadChildren: () =>
+          import('../app/components/menu-table/menu-tables.routes').then(
+            (m) => m.MenuTableRoutes
+          ),
+      }
+    ]
   },
   {
     path: '**',
