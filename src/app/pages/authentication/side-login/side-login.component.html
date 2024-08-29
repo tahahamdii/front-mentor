@@ -11,22 +11,19 @@
             </a>
           </div>
 
-          
-
-
-          <form class="m-t-30">
+          <form [formGroup]="form" (ngSubmit)="submit()" class="m-t-30">
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Username</mat-label
+              >Email</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput formControlName="email" />
             </mat-form-field>
             <!-- password -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Password</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="password" formControlName="password" />
             </mat-form-field>
 
             <div class="d-flex align-items-center m-b-12">
@@ -37,10 +34,9 @@
                 >Forgot Password ?</a
               >
             </div>
-            <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+            <button mat-flat-button color="primary" class="w-100" type="submit">
               Sign In
-            </a>
-            <!-- input -->
+            </button>
           </form>
           <span class="d-block f-w-500 text-center m-t-24"
             >New to Lunch'n go ?

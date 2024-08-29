@@ -7,35 +7,63 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { MaterialModule } from '../../../material.module';
+import { HttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 @Component({
   selector: 'app-side-login',
   standalone: true,
   imports: [
     RouterModule,
-    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
   templateUrl: './side-login.component.html',
 })
 export class AppSideLoginComponent {
-  constructor(private router: Router) {}
+  form: FormGroup;
 
-  form = new FormGroup({
-    uname: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    password: new FormControl('', [Validators.required]),
-  });
+  constructor(private router: Router, private http: HttpClient) {
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    });
+  }
 
   get f() {
     return this.form.controls;
   }
 
   submit() {
-    // console.log(this.form.value);
-    this.router.navigate(['/']);
+    if (this.form.valid) {
+      const loginData = {
+        email: this.form.value.email,
+        password: this.form.value.password,
+      };
+
+      this.http.post('http://localhost:8080/rest/auth/C', loginData)
+        .pipe(
+          catchError(err => {
+            console.error('Login failed', err);
+            return of(null);  // Handle error
+          })
+        )
+        .subscribe(response => {
+          if (response) {
+            console.log('Login successful', response);
+            this.router.navigate(['/dashboard']);
+          }
+        });
+    }
   }
 }
