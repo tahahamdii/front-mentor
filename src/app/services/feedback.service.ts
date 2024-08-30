@@ -13,7 +13,7 @@ export class FeedbackService {
   addFeedback(feedbackType: string, menuId: number): Observable<any> {
     const params = new HttpParams()
       .set('feedbackType', feedbackType)
-      .set('menuId', menuId.toString());
+      .set('menuId', menuId);
 
     return this.http.post(this.apiUrl, null, { params });
   }

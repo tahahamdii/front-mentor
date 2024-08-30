@@ -19,24 +19,28 @@ export class FeedbackDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<FeedbackDialogComponent>,
     private feedbackService: FeedbackService,
-    @Inject(MAT_DIALOG_DATA) public data: { reservation: { menu: { id: number } } }
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: { reservation: any }
+  ) {
+    console.log("child data" ,data);
+  }
 
   onCancel(): void {
     this.dialogRef.close();
   }
 
   onSubmit(): void {
+    console.log(this.selectedFeedbackType, this.data.reservation.menu.id);
     if (!this.selectedFeedbackType) {
       console.error('Feedback type is not selected');
       return;
     }
 
-    const { menu: { id: menuId } } = this.data.reservation;
+    const menuId = this.data.reservation.menu; // Access the menu ID correctly
 
     this.feedbackService.addFeedback(this.selectedFeedbackType, menuId).subscribe({
       next: () => this.dialogRef.close(this.selectedFeedbackType),
       error: (err) => console.error(err),
     });
+    console.log(menuId);
   }
 }

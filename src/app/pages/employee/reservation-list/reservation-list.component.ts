@@ -58,7 +58,7 @@ export class ListReservationComponent implements OnInit {
   openFeedbackDialog(reservation: any): void {
     this.dialog.open(FeedbackDialogComponent, {
       width: '250px',
-      data: { reservation}
+      data: { reservation },
     });
     console.log(reservation);
   }
