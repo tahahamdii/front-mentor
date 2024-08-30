@@ -62,4 +62,14 @@ export class ListReservationComponent implements OnInit {
     });
     console.log(reservation);
   }
+
+  cancelReservation(reservationId: number): void {
+    this.reservationService.cancelReservation(reservationId).subscribe({
+      next: () => {
+        console.log(`Reservation ${reservationId} cancelled successfully`);
+        this.fetchReservations(); // Refresh the list after cancellation
+      },
+      error: (err) => console.error(err),
+    });
+  }
 }
