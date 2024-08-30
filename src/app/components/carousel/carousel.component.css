@@ -213,3 +213,42 @@ article img {
     padding: 0 80px;
   }
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.reserver-btn {
+  background-color: #ff5722; /* Customize the color for "Reserver" */
+}
+
+.reserver-btn:hover {
+  background-color: #e64a19; /* Darker shade on hover */
+}
+
+.menu-btn {
+  background-color: #009688; /* Customize the color for "Menu" */
+}
+
+.menu-btn:hover {
+  background-color: #00796b; /* Darker shade on hover */
+}

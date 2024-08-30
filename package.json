@@ -28,6 +28,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "angular-tabler-icons": "^2.7.0",
     "apexcharts": "^3.52.0",
+    "axios": "^1.7.5",
     "iconify": "^1.4.0",
     "mdb-angular-ui-kit": "^6.1.0",
     "moment": "^2.30.1",

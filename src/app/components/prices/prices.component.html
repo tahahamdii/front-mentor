@@ -1,0 +1,43 @@
+<a href="https://docs.google.com/spreadsheets/d/1zIVCVA0Tk5CvAiTyeAdDBPygT3aKDiSeM2FbPU0JO2c/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+    <div class="editlink">INSPECT<br />SHEET</div>
+  </a>
+  <div id="app">
+    <section id="specialssection" class="specials-container" *ngIf="menuItems_L.length" [ngStyle]="menuStyle">
+      <div id="special_component" [ngStyle]="menuStyle">
+        <h1>Daily Specials</h1>
+        <div class="specials-table-container">
+          <table>
+            <tbody *ngFor="let item of menuItems_L; let i = index" [attr.key]="'specialmenu-' + item.name">
+              <tr class="nameandprice">
+                <td [ngStyle]="dotStyle">
+                  <span [ngStyle]="menuStyle">{{ item.name }}</span>
+                </td>
+                <td [ngStyle]="dotStyle">
+                  <span [ngStyle]="menuStyle">${{ item.price }}</span>
+                </td>
+              </tr>
+              <tr class="description">
+                <td colspan="2">{{ item.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody *ngFor="let item of menuItems_R; let i = index" [attr.key]="'specialmenu-' + item.name">
+              <tr class="nameandprice">
+                <td [ngStyle]="dotStyle">
+                  <span [ngStyle]="menuStyle">{{ item.name }}</span>
+                </td>
+                <td [ngStyle]="dotStyle">
+                  <span [ngStyle]="menuStyle">${{ item.price }}</span>
+                </td>
+              </tr>
+              <tr class="description">
+                <td colspan="2">{{ item.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  
