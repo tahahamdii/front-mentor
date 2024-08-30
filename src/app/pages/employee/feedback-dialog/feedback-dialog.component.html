@@ -1,13 +1,11 @@
 <h1 mat-dialog-title>Provide Feedback</h1>
 <div mat-dialog-content>
-  <mat-form-field appearance="fill">
-    <mat-label>Select Feedback Type</mat-label>
-    <mat-radio-group [(ngModel)]="selectedFeedbackType">
-      <mat-radio-button value="good">Good</mat-radio-button>
-      <mat-radio-button value="notGood">Not Good</mat-radio-button>
-      <mat-radio-button value="average">Average</mat-radio-button>
-    </mat-radio-group>
-  </mat-form-field>
+  <mat-label>Select Feedback Type</mat-label>
+  <mat-radio-group [(ngModel)]="selectedFeedbackType">
+    <mat-radio-button value="GOOD">Good</mat-radio-button>
+    <mat-radio-button value="NOT_GOOD">Not Good</mat-radio-button>
+    <mat-radio-button value="AVERAGE">Average</mat-radio-button>
+  </mat-radio-group>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>

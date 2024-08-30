@@ -84,21 +84,17 @@
                   
                    <!-- Rate Button Column -->
                    <ng-container matColumnDef="rate">
-                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">
-                        Rate
-                    </th>
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Rate</th>
                     <td mat-cell *matCellDef="let element" class="mat-body-1">
-                        <button mat-raised-button color="primary" (click)="openFeedbackDialog()">Rate</button>
+                      <button mat-raised-button color="primary" (click)="openFeedbackDialog(element)">Rate</button>
                     </td>
-                </ng-container>
+                  </ng-container>
           
                   <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
                 </table>
               </div>
-              <div class="feedback-button-wrapper">
-                <button mat-raised-button color="primary" (click)="openFeedbackDialog()">Rate</button>
-            </div>
+              
             </mat-card-content>
           </mat-card>
           
