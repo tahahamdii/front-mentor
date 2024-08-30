@@ -86,7 +86,7 @@ import { TagModule } from 'primeng/tag';
     MatTableModule,
     CarouselModule,
     ButtonModule,
-    TagModule
+    TagModule,
   ],
 })
 export class MaterialModule {}
