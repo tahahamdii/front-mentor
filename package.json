@@ -23,6 +23,7 @@
     "@angular/router": "^18.0.3",
     "@coreui/angular": "^5.2.16",
     "@ng-matero/extensions": "^17.0.0",
+    "@ngu/carousel": "^18.0.0-rc.1",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "angular-tabler-icons": "^2.7.0",
