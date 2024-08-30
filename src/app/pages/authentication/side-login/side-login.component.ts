@@ -61,7 +61,7 @@ export class AppSideLoginComponent {
         .subscribe(response => {
           if (response) {
             console.log('Login successful', response);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/v1/employee']);
           }
         });
     }

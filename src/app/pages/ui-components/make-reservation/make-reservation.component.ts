@@ -58,7 +58,7 @@ export class MakeReservationComponent implements OnInit {
       }).subscribe({
         next: (response) => {
           console.log('Reservation made successfully!', response);
-          this.router.navigate(['/ui-components/reservations']);  // Redirect after success
+          this.router.navigate(['/v1/employee']);  // Redirect after success
         },
         error: (error) => {
           console.error('Error making reservation', error);
