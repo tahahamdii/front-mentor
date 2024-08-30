@@ -15,6 +15,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+interface LoginResponse {
+  email: string;
+  // Include other fields if needed
+}
 
 @Component({
   selector: 'app-side-login',
@@ -60,8 +64,13 @@ export class AppSideLoginComponent {
         )
         .subscribe(response => {
           if (response) {
+            const logResponse = response as LoginResponse;
             console.log('Login successful', response);
-            this.router.navigate(['/v1/employee']);
+            if (logResponse.email && logResponse.email.includes('admin')) {
+              this.router.navigate(['/v1/admin']);
+            } else {
+              this.router.navigate(['/v1/employee']);
+            }
           }
         });
     }

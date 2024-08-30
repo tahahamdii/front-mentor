@@ -10,6 +10,10 @@ import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateMenuFormComponent } from '../update-menu-form/update-menu-form.component';
 import { HeaderComponent } from 'src/app/layouts/full/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { format, parseISO } from 'date-fns';
+import { groupBy } from 'lodash';
+
 
 // Define the Menu interface
 export interface Menu {
@@ -20,6 +24,7 @@ export interface Menu {
   garnish: string;
   dessert: string;
   sandwiches: string[];
+  isHeader?: boolean;
 }
 
 @Component({
@@ -32,13 +37,17 @@ export interface Menu {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    HeaderComponent
+    HeaderComponent,
+    CommonModule,
+    FormsModule
   ],
   templateUrl: './menu-table.component.html',
+  styleUrls: ['./menu-table.component.css']
 })
 export class MenuTableComponent implements OnInit {
-  displayedColumns: string[] = ['date', 'entree', 'platPrincipal', 'garniture', 'dessert', 'sandwiches', 'actions'];
+  displayedColumns: string[] = ['week','day','entree', 'platPrincipal', 'garniture', 'dessert', 'sandwiches', 'actions'];
   dataSource: Menu[] = [];
+element: any;
 
   constructor(private http: HttpClient,  public dialog: MatDialog) {}
 
@@ -55,6 +64,30 @@ export class MenuTableComponent implements OnInit {
         console.error('There was an error!', error);
       }
     );
+  }
+
+  transformData(data: any[]): any[] {
+    const transformedData = data.map(item => ({
+      date: item.date,
+      week: this.getWeekNumber(new Date(item.date)),
+      day: this.getDayName(new Date(item.date)),
+      entree: item.entree,
+      platPrincipal: item.platPrincipal,
+      garniture: item.garniture,
+      dessert: item.dessert,
+      sandwiches: item.sandwiches || []
+    }));
+    // Group data by week
+    const groupedByWeek = this.groupByWeek(transformedData);
+
+    // Flatten grouped data into a single array for the table
+    const flattenedData: any[] = [];
+    Object.keys(groupedByWeek).forEach(week => {
+      flattenedData.push({ week, day: '', entree: '', platPrincipal: '', garniture: '', dessert: '', sandwiches: [], isHeader: true });
+      groupedByWeek[week].forEach((item: any) => flattenedData.push(item));
+    });
+
+    return flattenedData;
   }
 
   deleteMenu(id: number): void {
@@ -91,6 +124,45 @@ export class MenuTableComponent implements OnInit {
       const index = this.dataSource.findIndex(m => m.id === updatedMenu.id);
       this.dataSource[index] = updatedMenu;
     });
+  }
+
+  getDayName(dateString: string): string {
+    const date = parseISO(dateString);
+    return format(date, 'EEEE'); // 'EEEE' gives the full day name (e.g., 'Monday')
+  }
+
+  getWeekNumber(date: Date): number {
+    const start = new Date(date.getFullYear(), 0, 1);
+    const days = Math.floor((date.getTime() - start.getTime()) / (24 * 60 * 60 * 1000));
+    return Math.ceil((days + 1) / 7);
+  }
+
+  groupByWeek(data: any[]): any {
+    return data.reduce((acc, item) => {
+      const week = item.week;
+      if (!acc[week]) {
+        acc[week] = [];
+      }
+      acc[week].push(item);
+      return acc;
+    }, {});
+  }
+
+  groupByDataByWeek(data: any[]): any[] {
+    const groupedByWeek = {};
+  
+    data.forEach(item => {
+      const date = new Date(item.date);
+      const startOfWeek = new Date(date.setDate(date.getDate() - date.getDay() + 1)); // Monday as start of week
+      const weekKey = `${startOfWeek.getFullYear()}-W${Math.ceil((date.getDate() + 1 - startOfWeek.getDay()) / 7)}`;
+      
+      if (!groupedByWeek[weekKey]) {
+        groupedByWeek[weekKey] = [];
+      }
+      groupedByWeek[weekKey].push(item);
+    });
+  
+    return groupedByWeek;
   }
   
 }
