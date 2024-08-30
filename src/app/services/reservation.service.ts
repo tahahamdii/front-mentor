@@ -13,4 +13,11 @@ export class ReservationService {
   getReservationsByUserId(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/reservations/user/${userId}`);
   }
+
+  cancelReservation(reservationId: number) {
+    return this.http.post<void>(`${this.apiUrl}/reservations/cancel`, null, {
+      params: { reservationId: reservationId }
+    });
+  }
+
 }

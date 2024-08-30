@@ -34,7 +34,8 @@ export class ListReservationComponent implements OnInit {
     'cancellationDeadline',
     'menu',
     'isCancelled',
-    'rate'
+    'rate',
+    'cancel'
   ];
   
   // Updated dataSource1 to store Reservation objects
