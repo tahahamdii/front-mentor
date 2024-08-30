@@ -1,0 +1,79 @@
+<app-header></app-header>
+<!-- <app-prices></app-prices> -->
+
+<div class="body-wrapper">
+    <main class="pageWrapper maxWidth">
+        <header>
+            <img class="logo" title="Reset Game" src="https://manirestaurant.ch/wp-content/uploads/2024/04/logo-mani.png" alt="Pokemon">
+          </header>
+          <mat-card class="cardWithShadow">
+            <mat-card-content>
+              <mat-card-title>Reservations</mat-card-title>
+          
+              <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource1" class="w-100">
+                  <!-- Product Column -->
+                  <ng-container matColumnDef="assigned">
+                    <th mat-header-cell *matHeaderCellDef>Menu</th>
+                    <td mat-cell *matCellDef="let element">
+                      <div class="d-flex align-items-center">
+                        <img [src]="element.imagePath" alt="product" width="60" class="rounded" />
+                        <div class="m-l-16">
+                          <h6>{{ element.uname }}</h6>
+                        </div>
+                      </div>
+                    </td>
+                  </ng-container>
+          
+                  <!-- Payment Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Payment</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span class="text-dark f-w-600">${{ element.budget }}</span> / 499
+                      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                    </td>
+                  </ng-container>
+          
+                  <!-- Status Column -->
+                  <ng-container matColumnDef="priority">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let element">
+                      <span class="bg-light-success text-success rounded p-6">{{ element.priority | titlecase }}</span>
+                    </td>
+                  </ng-container>
+          
+                  <!-- Actions Column -->
+                  <ng-container matColumnDef="budget">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                          <mat-icon>add</mat-icon>
+                          <span>Add</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon>edit</mat-icon>
+                          <span>Edit</span>
+                        </button>
+                        <button mat-menu-item>
+                          <mat-icon>delete</mat-icon>
+                          <span>Delete</span>
+                        </button>
+                      </mat-menu>
+                    </td>
+                  </ng-container>
+          
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+                </table>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          
+    
+
+    </main>
+  </div>

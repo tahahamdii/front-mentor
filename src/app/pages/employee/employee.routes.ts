@@ -1,5 +1,8 @@
 import { Routes } from "@angular/router";
 import { EmployeeComponent } from "./employee.component";
+import { MakeReservationComponent } from "../ui-components/make-reservation/make-reservation.component";
+import { ReserviComponent } from "./reservi/reservi.component";
+import { ListReservationComponent } from "./reservation-list/reservation-list.component";
 
 
 export const EmployeeRoutes: Routes = [
@@ -10,6 +13,14 @@ export const EmployeeRoutes: Routes = [
                 path: 'employee',
                 component: EmployeeComponent,
             },
+            {
+                path: 'reser',
+                component: ReserviComponent,
+            },
+            {
+                path:'list',
+                component: ListReservationComponent
+            }
         ],
     }
 ]

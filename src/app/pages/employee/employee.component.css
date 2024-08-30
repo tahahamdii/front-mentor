@@ -18,3 +18,18 @@
     padding: 10px 20px;
   }
   
+  header {
+    text-align: center;
+  }
+  header img {
+    max-height: 100px;
+    cursor: pointer;
+  }
+
+  .instructions {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .instructions p {
+    font-size: 2em;
+  }

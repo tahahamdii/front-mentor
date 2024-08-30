@@ -4,6 +4,7 @@
   max-width: 60em;
   margin: 1em auto;
   position: relative;
+  border-radius: 20%;
 }
 
 input {
@@ -122,6 +123,7 @@ article img {
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
   transition: all 500ms ease-out;
+  border-radius: 9%;
 }
 .slider-wrapper .inner {
   -webkit-transform: translateZ(0);

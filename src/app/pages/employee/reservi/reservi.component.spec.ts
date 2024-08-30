@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselCircularDemo } from './carousel-circular-demo';
+import { ReserviComponent } from './reservi.component';
 
-describe('CarouselCircularDemo', () => {
-  let component: CarouselCircularDemo;
-  let fixture: ComponentFixture<CarouselCircularDemo>;
+describe('ReserviComponent', () => {
+  let component: ReserviComponent;
+  let fixture: ComponentFixture<ReserviComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarouselCircularDemo]
+      imports: [ReserviComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CarouselCircularDemo);
+    fixture = TestBed.createComponent(ReserviComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
