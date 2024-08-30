@@ -91,7 +91,7 @@ export const navItems: NavItem[] = [
         route: '/ui-components/lists',
       },
   {
-        displayName: 'Dashboard',
+        displayName: 'Menus',
         iconName: 'solar:widget-add-line-duotone',
         route: '/dashboard',
       },
@@ -99,11 +99,11 @@ export const navItems: NavItem[] = [
     navCap: 'Gestion des Menus',
     divider: true
   },
-  {
-    displayName: 'Voir les Menus',
-    iconName: 'solar:tablet-line-duotone',
-    route: '/menus/view',
-  },
+  // {
+  //   displayName: 'Voir les Menus',
+  //   iconName: 'solar:tablet-line-duotone',
+  //   route: '/menus/view',
+  // },
   {
     displayName: 'Ajouter un Menu',
     iconName: 'solar:add-circle-broken',
@@ -128,52 +128,52 @@ export const navItems: NavItem[] = [
     iconName: 'solar:calendar-date-bold',
     route: '/ui-components/reservations',
   },
-  {
-    displayName: 'Ajouter une Réservation',
-    iconName: 'solar:add-circle-bold',
-    route: '/ui-components/make-reservation',
-  },
+  // {
+  //   displayName: 'Ajouter une Réservation',
+  //   iconName: 'solar:add-circle-bold',
+  //   route: '/ui-components/make-reservation',
+  // },
   {
     displayName: 'Annuler une Réservation',
     iconName: 'solar:call-cancel-bold',
     route: '/reservations/cancel',
   },
-  {
-    navCap: 'Gestion des Utilisateurs',
-    divider: true
-  },
-  {
-    displayName: 'Voir les Utilisateurs',
-    iconName: 'solar:user-line-duotone',
-    route: '/users/view',
-  },
-  {
-    displayName: 'Ajouter un Utilisateur',
-    iconName: 'solar:user-plus-line-duotone',
-    route: '/users/add',
-  },
-  {
-    displayName: 'Mettre à Jour un Utilisateur',
-    iconName: 'solar:smartphone-update-bold',
-    route: '/users/update',
-  },
-  {
-    displayName: 'Supprimer un Utilisateur',
-    iconName: 'solar:user-cross-bold',
-    route: '/users/delete',
-  },
-  {
-    navCap: 'Paramètres',
-    divider: true
-  },
-  {
-    displayName: 'Paramètres du Profil',
-    iconName: 'solar:settings-line-duotone',
-    route: '/settings/profile',
-  },
-  {
-    displayName: 'Paramètres du Système',
-    iconName: 'solar:system-line-duotone',
-    route: '/settings/system',
-  },
+  // {
+  //   navCap: 'Gestion des Utilisateurs',
+  //   divider: true
+  // },
+  // {
+  //   displayName: 'Voir les Utilisateurs',
+  //   iconName: 'solar:user-line-duotone',
+  //   route: '/users/view',
+  // },
+  // {
+  //   displayName: 'Ajouter un Utilisateur',
+  //   iconName: 'solar:user-plus-line-duotone',
+  //   route: '/users/add',
+  // },
+  // {
+  //   displayName: 'Mettre à Jour un Utilisateur',
+  //   iconName: 'solar:smartphone-update-bold',
+  //   route: '/users/update',
+  // },
+  // {
+  //   displayName: 'Supprimer un Utilisateur',
+  //   iconName: 'solar:user-cross-bold',
+  //   route: '/users/delete',
+  // },
+  // {
+  //   navCap: 'Paramètres',
+  //   divider: true
+  // },
+  // {
+  //   displayName: 'Paramètres du Profil',
+  //   iconName: 'solar:settings-line-duotone',
+  //   route: '/settings/profile',
+  // },
+  // {
+  //   displayName: 'Paramètres du Système',
+  //   iconName: 'solar:system-line-duotone',
+  //   route: '/settings/system',
+  // },
 ];
