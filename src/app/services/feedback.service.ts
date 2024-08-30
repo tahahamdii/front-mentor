@@ -10,7 +10,7 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) {}
 
-  addFeedback(feedback: { feedback: string }): Observable<any> {
-    return this.http.post(this.apiUrl, feedback);
+  addFeedback(feedbackData: { feedbackType: string, menu: number }): Observable<any> {
+    return this.http.post(this.apiUrl, feedbackData);
   }
 }

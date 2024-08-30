@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { FeedbackService } from 'src/app/services/feedback.service';
@@ -14,11 +14,13 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrl: './feedback-dialog.component.scss'
 })
 export class FeedbackDialogComponent {
-  feedback: string = '';
+  
+  selectedFeedbackType: string = '';
 
   constructor(
     private dialogRef: MatDialogRef<FeedbackDialogComponent>,
-    private feedbackService: FeedbackService
+    private feedbackService: FeedbackService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onCancel(): void {
@@ -26,8 +28,13 @@ export class FeedbackDialogComponent {
   }
 
   onSubmit(): void {
-    this.feedbackService.addFeedback({ feedback: this.feedback }).subscribe({
-      next: () => this.dialogRef.close(),
+    const feedbackData = {
+      feedbackType: this.selectedFeedbackType, // Feedback type selected by the user
+      menu: this.data.reservation.menu // Menu ID from the reservation data
+    };
+
+    this.feedbackService.addFeedback(feedbackData).subscribe({
+      next: () => this.dialogRef.close(this.selectedFeedbackType),
       error: (err) => console.error(err),
     });
   }

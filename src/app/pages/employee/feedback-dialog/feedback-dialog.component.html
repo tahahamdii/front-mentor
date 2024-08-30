@@ -1,16 +1,15 @@
-<p>feedback-dialog works!</p>
-<h1 mat-dialog-title>Submit Feedback</h1>
+<h1 mat-dialog-title>Provide Feedback</h1>
 <div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Feedback</mat-label>
-    <mat-radio-group [(ngModel)]="feedback">
+  <mat-form-field appearance="fill">
+    <mat-label>Select Feedback Type</mat-label>
+    <mat-radio-group [(ngModel)]="selectedFeedbackType">
       <mat-radio-button value="good">Good</mat-radio-button>
-      <mat-radio-button value="not good">Not Good</mat-radio-button>
+      <mat-radio-button value="notGood">Not Good</mat-radio-button>
       <mat-radio-button value="average">Average</mat-radio-button>
     </mat-radio-group>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
 </div>
