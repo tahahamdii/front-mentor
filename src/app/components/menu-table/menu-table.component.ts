@@ -25,6 +25,8 @@ export interface Menu {
   dessert: string;
   sandwiches: string[];
   isHeader?: boolean;
+  week?: string;
+  day?: string;
 }
 
 @Component({
@@ -66,29 +68,29 @@ element: any;
     );
   }
 
-  transformData(data: any[]): any[] {
-    const transformedData = data.map(item => ({
-      date: item.date,
-      week: this.getWeekNumber(new Date(item.date)),
-      day: this.getDayName(new Date(item.date)),
-      entree: item.entree,
-      platPrincipal: item.platPrincipal,
-      garniture: item.garniture,
-      dessert: item.dessert,
-      sandwiches: item.sandwiches || []
-    }));
-    // Group data by week
-    const groupedByWeek = this.groupByWeek(transformedData);
+  // transformData(data: any[]): any[] {
+  //   const transformedData = data.map(item => ({
+  //     date: item.date,
+  //     week: this.getWeekNumber(new Date(item.date)),
+  //     day: this.getDayName(new Date(item.date)),
+  //     entree: item.entree,
+  //     platPrincipal: item.platPrincipal,
+  //     garniture: item.garniture,
+  //     dessert: item.dessert,
+  //     sandwiches: item.sandwiches || []
+  //   }));
+  //   // Group data by week
+  //   const groupedByWeek = this.groupByWeek(transformedData);
 
-    // Flatten grouped data into a single array for the table
-    const flattenedData: any[] = [];
-    Object.keys(groupedByWeek).forEach(week => {
-      flattenedData.push({ week, day: '', entree: '', platPrincipal: '', garniture: '', dessert: '', sandwiches: [], isHeader: true });
-      groupedByWeek[week].forEach((item: any) => flattenedData.push(item));
-    });
+  //   // Flatten grouped data into a single array for the table
+  //   const flattenedData: any[] = [];
+  //   Object.keys(groupedByWeek).forEach(week => {
+  //     flattenedData.push({ week, day: '', entree: '', platPrincipal: '', garniture: '', dessert: '', sandwiches: [], isHeader: true });
+  //     groupedByWeek[week].forEach((item: any) => flattenedData.push(item));
+  //   });
 
-    return flattenedData;
-  }
+  //   return flattenedData;
+  // }
 
   deleteMenu(id: number): void {
     const url = `http://localhost:8080/api/menus/delete/${id}`;
@@ -137,32 +139,54 @@ element: any;
     return Math.ceil((days + 1) / 7);
   }
 
-  groupByWeek(data: any[]): any {
-    return data.reduce((acc, item) => {
-      const week = item.week;
-      if (!acc[week]) {
-        acc[week] = [];
-      }
-      acc[week].push(item);
-      return acc;
-    }, {});
-  }
 
-  groupByDataByWeek(data: any[]): any[] {
-    const groupedByWeek = {};
+
+  groupByDataByWeek(data: any[]): { [key: string]: any[] } {
+    const groupedByWeek: { [key: string]: any[] } = {}; // This is an object, not an array
   
     data.forEach(item => {
       const date = new Date(item.date);
       const startOfWeek = new Date(date.setDate(date.getDate() - date.getDay() + 1)); // Monday as start of week
       const weekKey = `${startOfWeek.getFullYear()}-W${Math.ceil((date.getDate() + 1 - startOfWeek.getDay()) / 7)}`;
-      
+  
+      // Ensure that the key exists in the object, then push the item into the array
       if (!groupedByWeek[weekKey]) {
-        groupedByWeek[weekKey] = [];
+        groupedByWeek[weekKey] = []; // Initialize an array for the week if it doesn't exist
       }
       groupedByWeek[weekKey].push(item);
     });
   
-    return groupedByWeek;
+    return groupedByWeek; // This returns an object where each key is a week, and the value is an array of items for that week
   }
   
+
+  flattenDataForDisplay(groupedByWeek: { [key: string]: Menu[] }): Menu[] {
+    const flattenedData: Menu[] = [];
+
+    Object.keys(groupedByWeek).forEach(week => {
+      // Add a header row for each week
+      flattenedData.push({
+        id: -1, // Use a special id for header rows
+        date: '',
+        week,
+        day: '',
+        entree: '',
+        main_course: '',
+        garnish: '',
+        dessert: '',
+        sandwiches: [],
+        isHeader: true
+      });
+
+      // Add each item for the week
+      groupedByWeek[week].forEach(item => {
+        flattenedData.push({
+          ...item,
+          week
+        });
+      });
+    });
+
+    return flattenedData;
+  }
 }
