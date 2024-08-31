@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 interface LoginResponse {
   email: string;
+  id: number;
   // Include other fields if needed
 }
 
@@ -66,6 +67,7 @@ export class AppSideLoginComponent {
           if (response) {
             const logResponse = response as LoginResponse;
             console.log('Login successful', response);
+            localStorage.setItem('id',logResponse.id.toString());
             if (logResponse.email && logResponse.email.includes('admin')) {
               this.router.navigate(['/v1/admin']);
             } else {

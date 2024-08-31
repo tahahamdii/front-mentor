@@ -1,3 +1,5 @@
 interface LoginResponse {
     email: string;
-    token: string;}
+    token: string;
+    id: number;
+}
