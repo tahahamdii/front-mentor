@@ -3,6 +3,7 @@ import { EmployeeComponent } from "./employee.component";
 import { MakeReservationComponent } from "../ui-components/make-reservation/make-reservation.component";
 import { ReserviComponent } from "./reservi/reservi.component";
 import { ListReservationComponent } from "./reservation-list/reservation-list.component";
+import { MatriculeComponent } from "./matricule/matricule.component";
 
 
 export const EmployeeRoutes: Routes = [
@@ -20,6 +21,10 @@ export const EmployeeRoutes: Routes = [
             {
                 path:'list',
                 component: ListReservationComponent
+            },
+            {
+                path:'matricule',
+                component:MatriculeComponent
             }
         ],
     }
