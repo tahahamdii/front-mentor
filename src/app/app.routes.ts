@@ -1,9 +1,21 @@
 import { Routes } from '@angular/router';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
-import { MenuTableComponent } from './components/menu-table/menu-table.component';
+import { MatriculeComponent } from './pages/employee/matricule/matricule.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/v1/matricule',
+    pathMatch: 'full',
+  },
+  {
+    path: 'v1',
+    loadChildren: () =>
+      import('../app/pages/employee/employee.routes').then(
+        (m) => m.EmployeeRoutes
+      ),
+  },
   {
     path: '',
     component: FullComponent,
@@ -48,28 +60,15 @@ export const routes: Routes = [
   {
     path: '',
     component: BlankComponent,
-    children:[
+    children: [
       {
         path: 'menu-table',
         loadChildren: () =>
           import('../app/components/menu-table/menu-tables.routes').then(
             (m) => m.MenuTableRoutes
           ),
-      }
-    ]
-  },
-  {
-    path: '',
-    
-    children:[
-      {
-        path: 'v1',
-        loadChildren: () =>
-          import('../app/pages/employee/employee.routes').then(
-            (m) => m.EmployeeRoutes
-          ),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '**',

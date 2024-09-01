@@ -22,7 +22,7 @@ import { RouterModule } from '@angular/router';
     CommonModule
   ],
   templateUrl: './matricule.component.html',
-  styleUrl: './matricule.component.scss'
+  styleUrl: './matricule.component.css'
 })
 export class MatriculeComponent {
   form: FormGroup;
