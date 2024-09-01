@@ -19,7 +19,7 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
         </div>
       </div>
     </div>`,
-  styleUrls: ['./card.component.css'],
+  styleUrls: ['./card.component.scss'],
   imports: [CommonModule]
 })
 export class CardComponent implements OnInit {
