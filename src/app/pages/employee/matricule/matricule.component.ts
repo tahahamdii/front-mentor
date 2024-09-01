@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    CommonModule
   ],
   templateUrl: './matricule.component.html',
   styleUrl: './matricule.component.scss'
@@ -42,9 +44,9 @@ export class MatriculeComponent {
       const matricule = this.form.value.matricule;
 
       // Call the API
-      this.http.get(`http://localhost:8080/api/reservations/checkReservation?matricule=${matricule}`).subscribe(
-        (response: any) => {
-          if (response === 'Welcome!') {
+      this.http.get(`http://localhost:8080/api/reservations/checkReservation?matricule=${matricule}`,{ responseType: 'text' }).subscribe(
+        (response: string) => {
+          if (response.trim() === 'Welcome!') {
             this.showWelcome = true;
             this.showImprimerButton = true;
             this.snackBar.open('Welcome!', 'Close', {
