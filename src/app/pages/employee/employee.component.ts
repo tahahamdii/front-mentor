@@ -7,6 +7,7 @@ import { CarouselComponent } from "../../components/carousel/carousel.component"
 import { CollectionComponent } from 'src/app/components/collection/collection.component';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { PricesComponent } from 'src/app/components/prices/prices.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -19,4 +20,9 @@ import { PricesComponent } from 'src/app/components/prices/prices.component';
 })
 export class EmployeeComponent {
 
+  constructor(private router: Router) {}
+
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
+  }
 }

@@ -1,0 +1,51 @@
+
+<app-header></app-header>
+<!-- <app-prices></app-prices> -->
+
+<div class="body-wrapper">
+    <main class="pageWrapper maxWidth">
+        
+          <div class="menu-container">
+            <table *ngFor="let week of weeks; let i = index">
+              <thead>
+                <tr>
+                  <th colspan="5">Semaine {{ i + 1 }}</th>
+                </tr>
+                <tr>
+                  <th>Jour</th>
+                  <th>Lundi</th>
+                  <th>Mardi</th>
+                  <th>Mercredi</th>
+                  <th>Jeudi</th>
+                  <th>Vendredi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Soupe ou Entrée chaude</td>
+                  <td *ngFor="let day of week">{{ day.entree }}</td>
+                </tr>
+                <tr>
+                  <td>Salade</td>
+                  <td *ngFor="let day of week">{{ day.sandwiches.join(', ') }}</td>
+                </tr>
+                <tr>
+                  <td>Suite</td>
+                  <td *ngFor="let day of week">{{ day.platPrincipal }}</td>
+                </tr>
+                <tr>
+                  <td>Garniture</td>
+                  <td *ngFor="let day of week">{{ day.garniture }}</td>
+                </tr>
+                <tr>
+                  <td>Dessert</td>
+                  <td *ngFor="let day of week">{{ day.dessert }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+      <!-- <app-prices></app-prices> -->
+
+    </main>
+  </div>

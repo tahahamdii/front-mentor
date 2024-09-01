@@ -4,6 +4,7 @@ import { MakeReservationComponent } from "../ui-components/make-reservation/make
 import { ReserviComponent } from "./reservi/reservi.component";
 import { ListReservationComponent } from "./reservation-list/reservation-list.component";
 import { MatriculeComponent } from "./matricule/matricule.component";
+import { MenuTableComponent } from "src/app/pages/employee/menu-table/menu-table.component";
 
 
 export const EmployeeRoutes: Routes = [
@@ -25,6 +26,10 @@ export const EmployeeRoutes: Routes = [
             {
                 path:'matricule',
                 component:MatriculeComponent
+            },
+            {
+                path:'menu',
+                component: MenuTableComponent
             }
         ],
     }

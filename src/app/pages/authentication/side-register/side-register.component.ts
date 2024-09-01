@@ -41,7 +41,7 @@ export class AppSideRegisterComponent {
         .subscribe({
           next: (response) => {
             console.log('Registration successful!', response);
-            this.router.navigate(['/']);  // Redirect after success
+            this.router.navigate(['/authentication/login']);  // Redirect after success
           },
           error: (error) => {
             console.error('Registration error', error);

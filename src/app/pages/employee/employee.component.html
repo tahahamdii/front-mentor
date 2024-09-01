@@ -13,8 +13,10 @@
             </div>
           </main>  
     
-      <app-carousel></app-carousel>
-      <!-- <app-prices></app-prices> -->
-
+      <!-- <app-carousel></app-carousel> -->
+      <div class="button-container">
+        <button class="btn reserver-btn" (click)="navigateTo('/v1/reser')">Reserver</button>
+        <button class="btn menu-btn" (click)="navigateTo('/v1/menu')">Menu</button>
+      </div>
     </main>
   </div>

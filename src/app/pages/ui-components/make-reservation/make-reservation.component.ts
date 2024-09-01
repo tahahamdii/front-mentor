@@ -35,7 +35,6 @@ export class MakeReservationComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.reservationForm = this.fb.group({
-      menuId: ['', Validators.required],
       reservationDate: ['', Validators.required],
     });
   }
@@ -48,6 +47,7 @@ export class MakeReservationComponent implements OnInit {
       const userId = localStorage.getItem('id');
 
       if (userId) {
+        console.log(userId);
         const payload = {
           userId: userId,
           reservationDate: formData.reservationDate
@@ -64,6 +64,7 @@ export class MakeReservationComponent implements OnInit {
             console.error('Error making reservation', error);
           }
         });
+        console.log(payload);
       } else {
         console.error('User ID not found in local storage.');
       }
