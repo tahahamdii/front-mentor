@@ -85,11 +85,11 @@ export const navItems: NavItem[] = [
     iconName: 'solar:dashboard-line-duotone',
     route: '/dashboard',
   },
-  {
-        displayName: 'Lists',
-        iconName: 'solar:bookmark-square-minimalistic-line-duotone',
-        route: '/ui-components/lists',
-      },
+  // {
+  //       displayName: 'Lists',
+  //       iconName: 'solar:bookmark-square-minimalistic-line-duotone',
+  //       route: '/ui-components/lists',
+  //     },
   {
         displayName: 'Menus',
         iconName: 'solar:widget-add-line-duotone',

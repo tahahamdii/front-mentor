@@ -54,6 +54,9 @@ export class MatriculeComponent {
             this.snackBar.open('Welcome!', 'Close', {
               duration: 3000,
             });
+
+            this.generateAndDownloadPDF(matricule);
+
           } else {
             this.showWelcome = false;
             this.showImprimerButton = false;
@@ -70,4 +73,24 @@ export class MatriculeComponent {
       );
     }
   }
+
+
+  generateAndDownloadPDF(matricule: string) {
+    this.http.get(`http://localhost:8080/api/reservations/generate-pdf?matricule=${matricule}`, { responseType: 'blob' }).subscribe(
+      (response: Blob) => {
+        const url = window.URL.createObjectURL(response);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'reservation.pdf';
+        link.click();
+        window.URL.revokeObjectURL(url);
+      },
+      (error) => {
+        this.snackBar.open('Failed to generate PDF. Please try again.', 'Close', {
+          duration: 3000,
+        });
+      }
+    );
+  }
+  
 }
