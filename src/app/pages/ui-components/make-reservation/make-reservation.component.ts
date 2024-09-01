@@ -35,7 +35,6 @@ export class MakeReservationComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.reservationForm = this.fb.group({
-      userId: ['', Validators.required],
       menuId: ['', Validators.required],
       reservationDate: ['', Validators.required],
     });
@@ -46,24 +45,28 @@ export class MakeReservationComponent implements OnInit {
   onSubmit(): void {
     if (this.reservationForm.valid) {
       const formData = this.reservationForm.value;
+      const userId = localStorage.getItem('id');
 
-      const payload = {
-        userId: formData.userId,
-        menuId: formData.menuId,
-        reservationDate: formData.reservationDate
-      };
+      if (userId) {
+        const payload = {
+          userId: userId,
+          reservationDate: formData.reservationDate
+        };
 
-      this.http.post('http://localhost:8080/api/reservations/make', null, {
-        params: payload
-      }).subscribe({
-        next: (response) => {
-          console.log('Reservation made successfully!', response);
-          this.router.navigate(['/v1/employee']);  // Redirect after success
-        },
-        error: (error) => {
-          console.error('Error making reservation', error);
-        }
-      });
+        this.http.post('http://localhost:8080/api/reservations/make', null, {
+          params: payload
+        }).subscribe({
+          next: (response) => {
+            console.log('Reservation made successfully!', response);
+            this.router.navigate(['/v1/employee']);  // Redirect after success
+          },
+          error: (error) => {
+            console.error('Error making reservation', error);
+          }
+        });
+      } else {
+        console.error('User ID not found in local storage.');
+      }
     }
   }
 }

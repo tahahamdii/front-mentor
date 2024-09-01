@@ -8,19 +8,21 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../../layouts/full/header/header.component";
+import { Header2Component } from 'src/app/layouts/full/header2/header2.component';
 
 @Component({
   selector: 'app-matricule',
   standalone: true,
-  imports: [ RouterModule,
+  imports: [RouterModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatCheckboxModule,
-    CommonModule
-  ],
+    CommonModule, HeaderComponent,
+    Header2Component],
   templateUrl: './matricule.component.html',
   styleUrl: './matricule.component.css'
 })

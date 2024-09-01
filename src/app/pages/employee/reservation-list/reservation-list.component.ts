@@ -32,7 +32,6 @@ export class ListReservationComponent implements OnInit {
     
     'reservationDate',
     'cancellationDeadline',
-    'menu',
     'isCancelled',
     'rate',
     'cancel'
@@ -48,7 +47,7 @@ export class ListReservationComponent implements OnInit {
   }
 
   fetchReservations(): void {
-    const userId = 1; // Replace with dynamic userId later or fetch from local storage
+    const userId = Number(localStorage.getItem('id'));
     this.reservationService.getReservationsByUserId(userId).subscribe((response: any) => {
       // Assuming response.reservations is an array of reservations
       this.dataSource1.data = response.reservations;
