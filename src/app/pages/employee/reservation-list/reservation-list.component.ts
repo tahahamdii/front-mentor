@@ -64,6 +64,7 @@ export class ListReservationComponent implements OnInit {
   }
 
   cancelReservation(reservationId: number): void {
+    console.log(`Cancelling reservation ${reservationId}`);
     this.reservationService.cancelReservation(reservationId).subscribe({
       next: () => {
         console.log(`Reservation ${reservationId} cancelled successfully`);

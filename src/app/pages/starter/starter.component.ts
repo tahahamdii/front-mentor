@@ -7,7 +7,7 @@ import { AppBlogCardsComponent } from 'src/app/components/blog-card/blog-card.co
 import { AppRevenueProductComponent } from 'src/app/components/revenue-product/revenue-product.component';
 import { AppRevenueForecastComponent } from 'src/app/components/revenue-forecast/revenue-forecast.component';
 import { AppTablesComponent } from "../ui-components/tables/tables.component";
-import { MenuTableComponent } from "../../components/menu-table/menu-table.component";
+import { MenuTableComponent } from "../employee/menu-table/menu-table.component";
 
 @Component({
   selector: 'app-starter',

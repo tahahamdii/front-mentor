@@ -32,7 +32,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 
 })
 export class ReservationComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'reservationDate', 'cancellationDeadline', 'isCancelled', 'menu', 'user'];
+  displayedColumns: string[] = ['id', 'reservationDate', 'cancellationDeadline', 'isCancelled', 'user'];
   reservations: any[] = [];
 
   constructor(private http: HttpClient) {}
