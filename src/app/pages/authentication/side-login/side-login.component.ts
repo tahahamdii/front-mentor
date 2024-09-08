@@ -69,7 +69,7 @@ export class AppSideLoginComponent {
             console.log('Login successful', response);
             localStorage.setItem('id',logResponse.id.toString());
             if (logResponse.email && logResponse.email.includes('admin')) {
-              this.router.navigate(['/v1/admin']);
+              this.router.navigate(['/dashboard']);
             } else {
               this.router.navigate(['/v1/employee']);
             }
